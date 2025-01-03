@@ -1,6 +1,21 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
 
 function AnnouncementBar() {
+    // State for selected currency and language
+    const [currency, setCurrency] = useState("USD");
+    const [language, setLanguage] = useState("en");
+
+    // Handling currency change
+    const handleCurrencyChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+        setCurrency(event.target.value);
+    };
+
+    // Handling language change
+    const handleLanguageChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+        setLanguage(event.target.value);
+    };
+
     return (
         <div className="bg-[#24b3ba] text-white p-3 px-10">
             <div className="flex justify-between items-center mx-6 text-xs font-semibold flex-wrap">
@@ -16,6 +31,8 @@ function AnnouncementBar() {
                         <select
                             id="currency"
                             className="bg-[#24b3ba] text-white px-1 py-1 rounded text-xs sm:text-sm"
+                            value={currency}
+                            onChange={handleCurrencyChange}
                         >
                             <option value="USD">USD</option>
                             <option value="SAR">SAR</option>
@@ -30,7 +47,9 @@ function AnnouncementBar() {
                     <div className="flex items-center">
                         <select
                             id="language"
-                            className="bg-[#24b3ba] text-white -px-4 py-1 rounded text-xs sm:text-sm"
+                            className="bg-[#24b3ba] text-white px-1 py-1 rounded text-xs sm:text-sm"
+                            value={language}
+                            onChange={handleLanguageChange}
                         >
                             <option value="en">English</option>
                             <option value="ar">Arabic</option>

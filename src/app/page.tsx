@@ -1,17 +1,18 @@
-import AnnoucementBar from "./components/AnnoucementBar";
 import HeroSection from "./components/HeroSection";
 import BlogSection from "./components/BlogSection";
-import Navbar from "./components/Navbar";
+import AnnouncementBar from "./components/AnnoucementBar";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+
 
 export default function Home() {
   return (
     <div>
-      <AnnoucementBar />
+      <AnnouncementBar/>
       <Navbar />
       <HeroSection />
       <BlogSection />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

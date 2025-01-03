@@ -1,13 +1,22 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import Image from 'next/image';
 
 function HeroSection() {
   return (
     <div className="px-1">
       {/* Hero Section */}
-      <section
-        className="relative w-full h-72 sm:h-[100px] md:h-[200px] lg:h-[300px] bg-cover bg-center bg-no-repeat mt-4"
-        style={{ backgroundImage: "url(/Images/bg-blog.jpg)" }}
-      >
+      <section className="relative w-full h-72 sm:h-[200px] md:h-[250px] lg:h-[350px] mt-4">
+        {/* Lazy Loaded Image as Background */}
+        <Image
+          src="/Images/bg-blog.jpg"
+          alt="Blog Background"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+          width={1440}  // Specify the width of the image
+          height={350}  // Specify the height of the image
+        />
+
         {/* Overlay for better readability */}
         <div className="absolute inset-0 bg-white bg-opacity-60"></div>
 
